@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class Guest implements Serializable {
 
@@ -15,9 +17,11 @@ public class Guest implements Serializable {
 	 * define Id and GenerateValue as representative of primary key
 	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String name;
+	
 	private Integer numberOfGuests;
 	
 	/**
