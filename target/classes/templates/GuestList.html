@@ -1,25 +1,20 @@
-<body xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
 			<h1 class="panel-title">Guest List</h1>
 		</div>
 		<div class="panel-body">
 
-            <!--<form class="form-inline" method="POST" th:object="${guests}"-->
-                  <!--th:action="@{/guests}" style="margin: 20px 0">-->
-                <!--<div class="form-group">-->
-                    <!--<input type="text" class="form-control"-->
-                           <!--placeholder="Name"-->
-                           <!--th:field="*{name}"/>-->
-                    <!--<input type="text" class="form-control"-->
-                           <!--placeholder="Guests"-->
-                           <!--th:field="*{numberOfGuest}"/>-->
-                    <!--<button type="submit"-->
-                            <!--class="btn btn-primary">Add</button>-->
-                <!--</div>-->
-            <!--</form>-->
+			<form class="form-inline" method="POST" th:object="${guest}" 
+			th:action="@{/guests}" style="margin: 20px 0">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Name" th:field="*{name}" /> 
+					<input type="text" class="form-control" placeholder="Guests" th:field="*{numberOfGuests}" />
+					<button type="submit" class="btn btn-primary">Add</button>
+				</div>
+			</form>
 
-			<table class="table" name="guest">
+			<table class="table">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -28,8 +23,8 @@
 				</thead>
 				<tbody>
 					<tr th:each="guest : ${guests}">
-                        <td th:text="${guest.name}"></td>
-						<td th:text="${guest.numberOfGuest}"></td>
+						<td th:text="${guest.name}"></td>
+						<td th:text="${guest.numberOfGuests}"></td>
 					</tr>
 				</tbody>
 			</table>
