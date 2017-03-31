@@ -2,11 +2,10 @@ package com.algaworks.party.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Guest implements Serializable {
@@ -23,7 +22,8 @@ public class Guest implements Serializable {
 	private String name;
 	private Integer numberOfGuests;
 
-	private LocalDate date;
+	@Temporal(value = TemporalType.TIMESTAMP)
+	private Date date;
 	
 	/**
 	 * @return the name
@@ -48,5 +48,13 @@ public class Guest implements Serializable {
 	 */
 	public void setNumberOfGuests(Integer numerOfGuests) {
 		this.numberOfGuests = numerOfGuests;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

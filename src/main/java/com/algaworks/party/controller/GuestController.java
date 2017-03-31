@@ -1,14 +1,13 @@
 package com.algaworks.party.controller;
 
+import com.algaworks.party.model.Guest;
+import com.algaworks.party.repository.Guests;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.algaworks.party.model.Guest;
-import com.algaworks.party.repository.Guests;
 
 @Controller
 @RequestMapping("/guests")
