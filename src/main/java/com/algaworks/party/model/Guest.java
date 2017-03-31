@@ -21,8 +21,9 @@ public class Guest implements Serializable {
 	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String name;
-	
 	private Integer numberOfGuests;
+
+	private LocalDate date;
 	
 	/**
 	 * @return the name
