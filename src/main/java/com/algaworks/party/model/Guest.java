@@ -1,12 +1,12 @@
 package com.algaworks.party.model;
 
-import java.io.Serializable;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.GenericGenerator;
+import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 public class Guest implements Serializable {
