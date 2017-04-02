@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Guest implements Serializable {
@@ -18,12 +18,17 @@ public class Guest implements Serializable {
 	@Id
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
+	@Column
 	private String name;
+	
+	@Column
 	private Integer numberOfGuests;
 
-	@Temporal(value = TemporalType.TIMESTAMP)
-	private Date date;
+	@Column
+	private LocalDate date;
 	
 	/**
 	 * @return the name
@@ -50,11 +55,11 @@ public class Guest implements Serializable {
 		this.numberOfGuests = numerOfGuests;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 }
