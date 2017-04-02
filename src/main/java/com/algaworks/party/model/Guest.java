@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Entity
 public class Guest implements Serializable {
@@ -29,6 +29,10 @@ public class Guest implements Serializable {
 
 	@Column
 	private LocalDate date;
+	
+	@OneToMany
+    @JoinColumn(name = "name")
+	private List<Person> person;
 	
 	/**
 	 * @return the name
